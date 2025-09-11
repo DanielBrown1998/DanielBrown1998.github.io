@@ -84,7 +84,7 @@ a {
     height: auto;
     display: block;
     border-radius: 5px;
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 16 / 9; /* Proporção da imagem */
 }
 
