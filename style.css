@@ -127,6 +127,44 @@ a {
     right: 10px;
 }
 
+/* Seção de Tecnologias */
+#technologies {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    justify-content: center;
+    gap: 30px; /* Espaço entre os ícones */
+    margin-top: 2rem;
+}
+
+.tech-item {
+    text-align: center;
+    width: 120px; /* Largura fixa para cada item */
+}
+
+.tech-item img {
+    width: 80px; /* Tamanho do ícone */
+    height: 80px;
+    object-fit: contain; /* Garante que a imagem caiba sem cortar */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tech-item img:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+}
+
+.tech-item p {
+    margin: 0;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+
 /* Footer */
 footer {
     background-color: var(--primary-color);

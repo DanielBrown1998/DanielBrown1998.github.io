@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Defina aqui os nomes dos seus arquivos de imagem
     // Não precisa colocar o caminho completo, apenas o nome do arquivo com a extensão
-    const studieImages = ['studie1.png', 'studie2.png', 'studie3.jpg', 'studie4.png', 'studie5.png', 'studie6.jpg']; // Adicione mais se precisar
-    const usmImages = ['usm1.png', 'usm2.png', 'usm3.png', 'usm4.png', 'usm5.png', 'usm6.png']; // Adicione mais se precisar
+    const studieImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.jpg', 'flutter_04.png', 'flutter_06.png']; // Adicione mais se precisar
+    const usmImages = ['usm1.png', 'usm2.png', 'usm3.png', 'usm4.png', 'usm5.png', 'usm6.png', 'usm7.png', 'usm8.png', 'usm9.png', 'usm10.png', 'usm11.png', 'usm12.png', 'usm13.png', 'usm14.png', 'usm15.png', 'usm16.png', 'usm17.png', 'usm18.png']; // Adicione mais se precisar
 
     // Função para carregar imagens em um carrossel específico
     function loadCarouselImages(containerId, imageArray, folder) {
