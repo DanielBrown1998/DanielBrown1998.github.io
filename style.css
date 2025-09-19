@@ -294,3 +294,10 @@ footer a {
         height: 60px;
     }
 }
+
+.github-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    vertical-align: middle;
+}

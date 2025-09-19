@@ -4,6 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Não precisa colocar o caminho completo, apenas o nome do arquivo com a extensão
     const studieImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png', 'flutter_06.png']; // Adicione mais se precisar
     const usmImages = ['usm1.png', 'usm2.png', 'usm3.png', 'usm4.png', 'usm5.png', 'usm6.png', 'usm7.png', 'usm8.png', 'usm9.png', 'usm10.png', 'usm11.png', 'usm12.png', 'usm13.png', 'usm14.png', 'usm15.png', 'usm16.png', 'usm17.png', 'usm18.png']; // Adicione mais se precisar
+    const apiRestBrasileiraoImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png'];
+
+    const githubLinks = {
+        'Projeto Studie': 'https://github.com/DanielBrown1998/studie_public',
+        'Projetos USM': 'https://github.com/DanielBrown1998/USM_public',
+        'API Rest Brasileirão': 'https://github.com/DanielBrown1998/api_rest_brasileirao'
+    };
+
+    function addGithubLinks() {
+        const h3s = document.querySelectorAll('#portfolio h3');
+        h3s.forEach(h3 => {
+            const projectName = h3.textContent;
+            const githubUrl = githubLinks[projectName];
+            if (githubUrl) {
+                const link = document.createElement('a');
+                link.href = githubUrl;
+                link.target = '_blank';
+                link.innerHTML = '<img src="assets/ico/github_icon.svg" alt="GitHub" class="github-icon">';
+                h3.appendChild(link);
+            }
+        });
+    }
 
     // Função para carregar imagens em um carrossel específico
     function loadCarouselImages(containerId, imageArray, folder) {
@@ -31,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carrega as imagens nos respectivos carrosseis
     loadCarouselImages('studie-container', studieImages, 'studie');
     loadCarouselImages('usm-container', usmImages, 'usm');
+    loadCarouselImages('api-rest-brasileirao-container', apiRestBrasileiraoImages, 'api_rest_brasileirao');
+    addGithubLinks();
 
     // Lógica para os botões de navegação do carrossel
     const carousels = document.querySelectorAll('.carousel');
