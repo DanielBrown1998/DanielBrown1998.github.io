@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const link = document.createElement('a');
                 link.href = githubUrl;
                 link.target = '_blank';
-                link.innerHTML = '<img src="assets/ico/github_icon.svg" alt="GitHub" class="github-icon">';
+                link.innerHTML = '<img src="assets/ico/github-mark-white.png" alt="GitHub" class="github-icon">';
                 h3.appendChild(link);
             }
         });
