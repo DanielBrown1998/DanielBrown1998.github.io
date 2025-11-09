@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Defina aqui os nomes dos seus arquivos de imagem
     // Não precisa colocar o caminho completo, apenas o nome do arquivo com a extensão
-    const studieImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png', 'flutter_06.png']; // Adicione mais se precisar
+    const studieImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png', 'flutter_06.png', 'flutter_07.png', 'flutter_08.png', 'flutter_09.jpeg', 'flutter_10.png', 'flutter_11.png', 'flutter_12.png', 'flutter_13.png', 'flutter_14.png', 'flutter_15.png', 'flutter_16.png', 'flutter_17.jpeg', 'flutter_18.jpeg', 'flutter_19.jpeg', 'flutter_20.jpeg', 'flutter_21.jpeg', 'flutter_22.jpeg']; // Adicione mais se precisar
     const usmImages = ['usm1.png', 'usm2.png', 'usm3.png', 'usm4.png', 'usm5.png', 'usm6.png', 'usm7.png', 'usm8.png', 'usm9.png', 'usm10.png', 'usm11.png', 'usm12.png', 'usm13.png', 'usm14.png', 'usm15.png', 'usm16.png', 'usm17.png', 'usm18.png']; // Adicione mais se precisar
     const apiRestBrasileiraoImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png'];
 
