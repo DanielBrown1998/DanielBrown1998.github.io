@@ -1,134 +1,140 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Defina aqui os nomes dos seus arquivos de imagem
-    // Não precisa colocar o caminho completo, apenas o nome do arquivo com a extensão
-    const studieImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png', 'flutter_06.png', 'flutter_07.png', 'flutter_08.png', 'flutter_09.jpeg', 'flutter_10.png', 'flutter_11.png', 'flutter_12.png', 'flutter_13.png', 'flutter_14.png', 'flutter_15.png', 'flutter_16.png', 'flutter_17.jpeg', 'flutter_18.jpeg', 'flutter_19.jpeg', 'flutter_20.jpeg', 'flutter_21.jpeg', 'flutter_22.jpeg']; // Adicione mais se precisar
-    const usmImages = ['usm1.png', 'usm2.png', 'usm3.png', 'usm4.png', 'usm5.png', 'usm6.png', 'usm7.png', 'usm8.png', 'usm9.png', 'usm10.png', 'usm11.png', 'usm12.png', 'usm13.png', 'usm14.png', 'usm15.png', 'usm16.png', 'usm17.png', 'usm18.png']; // Adicione mais se precisar
-    const apiRestBrasileiraoImages = ['flutter_01.png', 'flutter_02.png', 'flutter_03.png', 'flutter_04.png'];
+    // --- Menu Toggle for Mobile ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.navigation');
 
-    const githubLinks = {
-        'Projeto Studie': 'https://github.com/DanielBrown1998/studie_public',
-        'Projetos USM': 'https://github.com/DanielBrown1998/USM_public',
-        'API Rest Brasileirão': 'https://github.com/DanielBrown1998/api_rest_brasileirao'
-    };
+    if (menuToggle && navigation) {
+        menuToggle.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+        });
+    }
 
-    function addGithubLinks() {
-        const h3s = document.querySelectorAll('#portfolio h3');
-        h3s.forEach(h3 => {
-            const projectName = h3.textContent;
-            const githubUrl = githubLinks[projectName];
-            if (githubUrl) {
-                const link = document.createElement('a');
-                link.href = githubUrl;
-                link.target = '_blank';
-                link.innerHTML = '<img src="assets/ico/github-mark-white.png" alt="GitHub" class="github-icon">';
-                h3.appendChild(link);
+    // --- Close menu when a link is clicked ---
+    const navLinks = document.querySelectorAll('.navigation a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navigation.classList.contains('active')) {
+                navigation.classList.remove('active');
             }
         });
-    }
-
-    // Função para carregar imagens em um carrossel específico
-    function loadCarouselImages(containerId, imageArray, folder) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        imageArray.forEach(imageName => {
-            const item = document.createElement('div');
-            item.classList.add('carousel-item');
-
-            const img = document.createElement('img');
-            img.src = `screenshots/${folder}/${imageName}`;
-            img.alt = `Screenshot do projeto ${imageName}`;
-
-            const caption = document.createElement('p');
-            caption.classList.add('caption');
-            caption.textContent = imageName;
-
-            item.appendChild(img);
-            item.appendChild(caption);
-            container.appendChild(item);
-        });
-    }
-
-    // Carrega as imagens nos respectivos carrosseis
-    loadCarouselImages('studie-container', studieImages, 'studie');
-    loadCarouselImages('usm-container', usmImages, 'usm');
-    loadCarouselImages('api-rest-brasileirao-container', apiRestBrasileiraoImages, 'api_rest_brasileirao');
-    addGithubLinks();
-
-    // Lógica para os botões de navegação do carrossel
-    const carousels = document.querySelectorAll('.carousel');
-
-    carousels.forEach(carousel => {
-        const container = carousel.querySelector('.carousel-container');
-        const prevButton = carousel.querySelector('.prev');
-        const nextButton = carousel.querySelector('.next');
-
-        if (!container || !prevButton || !nextButton) return;
-
-        let autoScrollInterval;
-
-        const startAutoScroll = () => {
-            // Limpa qualquer intervalo anterior para evitar múltiplos loops
-            clearInterval(autoScrollInterval);
-            autoScrollInterval = setInterval(() => {
-                const itemWidth = container.querySelector('.carousel-item')?.clientWidth;
-                if (!itemWidth) return;
-
-                // Verifica se chegou ao final do carrossel
-                // A tolerância (itemWidth / 2) ajuda a evitar problemas de arredondamento
-                if (container.scrollLeft + container.clientWidth >= container.scrollWidth - itemWidth / 2) {
-                    container.scrollLeft = 0; // Volta para o início
-                } else {
-                    container.scrollLeft += itemWidth; // Rola para o próximo item
-                }
-            }, 1000); // Rola a cada 5 segundos
-        };
-
-        const stopAutoScroll = () => {
-            clearInterval(autoScrollInterval);
-        };
-
-        // Evento para o botão "Próximo"
-        nextButton.addEventListener('click', () => {
-            const itemWidth = container.querySelector('.carousel-item').clientWidth;
-            container.scrollLeft += itemWidth;
-            stopAutoScroll(); // Para a rolagem automática ao navegar manualmente
-        });
-
-        // Evento para o botão "Anterior"
-        prevButton.addEventListener('click', () => {
-            const itemWidth = container.querySelector('.carousel-item').clientWidth;
-            container.scrollLeft -= itemWidth;
-            stopAutoScroll(); // Para a rolagem automática ao navegar manualmente
-        });
-
-        carousel.addEventListener('mouseenter', stopAutoScroll);
-        carousel.addEventListener('mouseleave', startAutoScroll);
-
-        startAutoScroll(); // Inicia a rolagem automática
     });
 
-    // Lógica para o efeito de fade-in na rolagem
+
+    // --- Theme Switcher ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            body.setAttribute('data-theme', 'dark');
+        } else {
+            body.removeAttribute('data-theme');
+        }
+    });
+
+    // --- Active Nav Link on Scroll ---
     const sections = document.querySelectorAll('section');
 
     const observerOptions = {
-        root: null, // Observa em relação ao viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Aciona quando 10% do elemento está visível
+        threshold: 0.5
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Para de observar depois que a animação acontece
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     }, observerOptions);
 
     sections.forEach(section => {
-        section.classList.add('fade-in-section');
         observer.observe(section);
     });
+    
+    // --- Dynamic Skills Loading ---
+    const skills = [
+        { name: 'Flutter', icon: 'assets/ico/flutter_icon.svg', description: 'Desenvolvimento multiplataforma com alta performance.' },
+        { name: 'BLoC & Cubit', icon: 'assets/ico/bloc_cubit_icon.png', description: 'Gerenciamento de estado robusto e escalável.' },
+        { name: 'Clean Architecture', description: 'Código limpo, testável e de fácil manutenção.' },
+        { name: 'CI/CD com Codemagic', icon: 'assets/ico/codemagic_icon.png', description: 'Automação de builds, testes e deploys.' },
+        { name: 'Firebase', icon: 'assets/ico/firebase_icon.svg', description: 'Backend como serviço para apps modernos.' },
+        { name: 'APIs REST', description: 'Integração com serviços de terceiros.' },
+        { name: 'Offline-First', icon: 'assets/ico/sqlite_icon.svg', description: 'Apps funcionais com ou sem conexão.' },
+        { name: 'GitHub', icon: 'assets/ico/github_icon.svg', description: 'Controle de versão e colaboração.' }
+    ];
+
+    const skillsGrid = document.querySelector('.skills-grid');
+    if (skillsGrid) {
+        skills.forEach(skill => {
+            const skillCard = document.createElement('div');
+            skillCard.classList.add('skill-card');
+
+            let iconHtml = '';
+            if (skill.icon) {
+                iconHtml = `<img src="${skill.icon}" alt="${skill.name}">`;
+            } else {
+                iconHtml = `<div class="no-icon"><i class="fas fa-layer-group"></i></div>`;
+            }
+
+            skillCard.innerHTML = `
+                ${iconHtml}
+                <h3>${skill.name}</h3>
+                <p>${skill.description}</p>
+            `;
+            skillsGrid.appendChild(skillCard);
+        });
+    }
+
+
+    // --- Dynamic Project Loading ---
+    const projects = [
+        {
+            title: 'Projeto Studie',
+            description: 'Um aplicativo de gerenciamento de estudos que ajuda os usuários a organizar seu tempo e materiais de estudo de forma eficiente.',
+            image: 'screenshots/studie/flutter_01.png',
+            githubUrl: 'https://github.com/DanielBrown1998/studie_public'
+        },
+        {
+            title: 'Projetos USM',
+            description: 'Uma coleção de aplicativos desenvolvidos para a universidade, abrangendo diversas áreas e tecnologias.',
+            image: 'screenshots/usm/usm1.png',
+            githubUrl: 'https://github.com/DanielBrown1998/USM_public'
+        },
+        {
+            title: 'API Rest Brasileirão',
+            description: 'Uma API REST que fornece dados em tempo real sobre o campeonato brasileiro de futebol, incluindo tabelas, resultados e estatísticas.',
+            image: 'screenshots/api_rest_brasileirao/flutter_01.png',
+            githubUrl: 'https://github.com/DanielBrown1998/api_rest_brasileirao'
+        }
+    ];
+
+    const projectsGrid = document.querySelector('.projects-grid');
+
+    if (projectsGrid) {
+        projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('project-card');
+
+            projectCard.innerHTML = `
+                <img src="${project.image}" alt="Screenshot do ${project.title}" class="project-image">
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="project-links">
+                        <a href="${project.githubUrl}" target="_blank">Ver no GitHub <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            `;
+            projectsGrid.appendChild(projectCard);
+        });
+    }
 });
