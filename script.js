@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'Projeto Studie',
             description: 'Um aplicativo de gerenciamento de estudos que ajuda os usuários a organizar seu tempo e materiais de estudo de forma eficiente.',
-            image: 'screenshots/studie/flutter_01.png',
+            image: 'screenshots/studie/flutter_12.png',
             githubUrl: 'https://github.com/DanielBrown1998/studie_public'
         },
         {
@@ -114,7 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Uma API REST que fornece dados em tempo real sobre o campeonato brasileiro de futebol, incluindo tabelas, resultados e estatísticas.',
             image: 'screenshots/api_rest_brasileirao/flutter_01.png',
             githubUrl: 'https://github.com/DanielBrown1998/api_rest_brasileirao'
+        },
+        {
+            title: 'Planning Poker',
+            description: 'Uma aplicação Flutter multiplataforma para sessões de Planning Poker em tempo real, construída com Clean Architecture, MVVM e Firebase Realtime Database.',
+            image: 'screenshots/planning_poker/flutter_01.png',
+            githubUrl: 'https://github.com/DanielBrown1998/planning_poker'
         }
+        
     ];
 
     const projectsGrid = document.querySelector('.projects-grid');
