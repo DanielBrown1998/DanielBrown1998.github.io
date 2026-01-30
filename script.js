@@ -59,6 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    // --- About Section Background on Scroll ---
+    const aboutSection = document.getElementById('about');
+    
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutSection.classList.add('in-view');
+            } else {
+                aboutSection.classList.remove('in-view');
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    });
+
+    if (aboutSection) {
+        aboutObserver.observe(aboutSection);
+    }
     
     // --- Dynamic Skills Loading ---
     const skills = [
@@ -101,27 +122,48 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Projeto Studie',
             description: 'Um aplicativo de gerenciamento de estudos que ajuda os usuários a organizar seu tempo e materiais de estudo de forma eficiente.',
             image: 'screenshots/studie/flutter_12.png',
-            githubUrl: 'https://github.com/DanielBrown1998/studie_public'
-        },
-        {
-            title: 'Projetos USM',
-            description: 'Uma coleção de aplicativos desenvolvidos para a universidade, abrangendo diversas áreas e tecnologias.',
-            image: 'screenshots/usm/usm1.png',
-            githubUrl: 'https://github.com/DanielBrown1998/USM_public'
+            screenshots: [
+                'screenshots/studie/flutter_01.png',
+                'screenshots/studie/flutter_02.png',
+                'screenshots/studie/flutter_03.png',
+                'screenshots/studie/flutter_04.png',
+                'screenshots/studie/flutter_05.png',
+                'screenshots/studie/flutter_06.png',
+                'screenshots/studie/flutter_07.png',
+                'screenshots/studie/flutter_08.png',
+                'screenshots/studie/flutter_09.png',
+                'screenshots/studie/flutter_10.png',
+                'screenshots/studie/flutter_11.png',
+                'screenshots/studie/flutter_12.png'
+            ],
+            githubUrl: 'https://github.com/DanielBrown1998/studie_public',
+            technologies: ['Bloc', 'Clean Arch', 'I.A Integration', 'SQLite', 'Offline-First', 'Codemagic', 'GitHub Projects', 'Google Crashlytics', 'Google Analytics']
         },
         {
             title: 'API Rest Brasileirão',
             description: 'Uma API REST que fornece dados em tempo real sobre o campeonato brasileiro de futebol, incluindo tabelas, resultados e estatísticas.',
             image: 'screenshots/api_rest_brasileirao/flutter_01.png',
-            githubUrl: 'https://github.com/DanielBrown1998/api_rest_brasileirao'
+            screenshots: [
+                'screenshots/api_rest_brasileirao/flutter_01.png',
+                'screenshots/api_rest_brasileirao/flutter_02.png',
+                'screenshots/api_rest_brasileirao/flutter_03.png',
+                'screenshots/api_rest_brasileirao/flutter_04.png'
+            ],
+            githubUrl: 'https://github.com/DanielBrown1998/api_rest_brasileirao',
+            technologies: ['Bloc', 'Clean Arch']
         },
         {
             title: 'Planning Poker',
             description: 'Uma aplicação Flutter multiplataforma para sessões de Planning Poker em tempo real, construída com Clean Architecture, MVVM e Firebase Realtime Database.',
             image: 'screenshots/planning_poker/flutter_01.png',
-            githubUrl: 'https://github.com/DanielBrown1998/planning_poker'
+            screenshots: [
+                'screenshots/planning_poker/flutter_01.png',
+                'screenshots/planning_poker/flutter_02.png',
+                'screenshots/planning_poker/flutter_03.png'
+            ],
+            githubUrl: 'https://github.com/DanielBrown1998/planning_poker',
+            technologies: ['Provider', 'Command', 'MVVM', 'Clean Arch', 'Go-Router', 'GetIt', 'Firebase Realtime Database']
         }
-        
     ];
 
     const projectsGrid = document.querySelector('.projects-grid');
@@ -131,16 +173,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectCard = document.createElement('div');
             projectCard.classList.add('project-card');
 
+            let techHtml = '';
+            if (project.technologies && project.technologies.length > 0) {
+                techHtml = `
+                    <div class="project-technologies">
+                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                `;
+            }
+
             projectCard.innerHTML = `
                 <img src="${project.image}" alt="Screenshot do ${project.title}" class="project-image">
                 <div class="project-info">
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
+                    ${techHtml}
                     <div class="project-links">
                         <a href="${project.githubUrl}" target="_blank">Ver no GitHub <i class="fab fa-github"></i></a>
                     </div>
                 </div>
             `;
+
             projectsGrid.appendChild(projectCard);
         });
     }
