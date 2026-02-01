@@ -524,6 +524,19 @@ h2 {
 }
 
 @media (max-width: 767px) {
+    #about::before {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    #contact {
+        background-image: none;
+    }
+    
+    #contact::before {
+        background: none;
+    }
+    
     .contact-container {
         flex-direction: column;
         text-align: center;

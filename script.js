@@ -121,20 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'Projeto Studie',
             description: 'Um aplicativo de gerenciamento de estudos que ajuda os usuários a organizar seu tempo e materiais de estudo de forma eficiente.',
-            image: 'screenshots/studie/flutter_12.png',
+            image: 'screenshots/studie/flutter_02.png',
             screenshots: [
                 'screenshots/studie/flutter_01.png',
                 'screenshots/studie/flutter_02.png',
                 'screenshots/studie/flutter_03.png',
                 'screenshots/studie/flutter_04.png',
-                'screenshots/studie/flutter_05.png',
-                'screenshots/studie/flutter_06.png',
-                'screenshots/studie/flutter_07.png',
-                'screenshots/studie/flutter_08.png',
-                'screenshots/studie/flutter_09.png',
-                'screenshots/studie/flutter_10.png',
-                'screenshots/studie/flutter_11.png',
-                'screenshots/studie/flutter_12.png'
             ],
             githubUrl: 'https://github.com/DanielBrown1998/studie_public',
             technologies: ['Bloc', 'Clean Arch', 'I.A Integration', 'SQLite', 'Offline-First', 'Codemagic', 'GitHub Projects', 'Google Crashlytics', 'Google Analytics']
