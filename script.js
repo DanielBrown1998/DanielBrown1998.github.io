@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projects = [
         {
             title: 'Projeto Studie',
-            description: 'Um aplicativo de gerenciamento de estudos que ajuda os usuários a organizar seu tempo e materiais de estudo de forma eficiente.',
+            description: 'Um aplicativo pensado para estudantes e desenvolvedores que desejam crescer profissionalmente e academicamente, plano de estudos gerado por I.A, consultas de conceitos contextualizado com as melhores referencias academicas.',
             image: 'screenshots/studie/flutter_02.png',
             screenshots: [
                 'screenshots/studie/flutter_01.png',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'API Rest Brasileirão',
-            description: 'Uma API REST que fornece dados em tempo real sobre o campeonato brasileiro de futebol, incluindo tabelas, resultados e estatísticas.',
+            description: 'Um app que implementa a API BRASILEIRAO que fornece dados em tempo real sobre o campeonato brasileiro de futebol, incluindo tabelas, resultados e estatísticas.',
             image: 'screenshots/api_rest_brasileirao/flutter_01.png',
             screenshots: [
                 'screenshots/api_rest_brasileirao/flutter_01.png',
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Planning Poker',
-            description: 'Uma aplicação Flutter multiplataforma para sessões de Planning Poker em tempo real, construída com Clean Architecture, MVVM e Firebase Realtime Database.',
+            description: 'Uma aplicação Flutter multiplataforma para sessões de Planning Poker em tempo real.',
             image: 'screenshots/planning_poker/flutter_01.png',
             screenshots: [
                 'screenshots/planning_poker/flutter_01.png',
