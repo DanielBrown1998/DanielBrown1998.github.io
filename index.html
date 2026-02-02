@@ -16,7 +16,7 @@
                 <img src="assets/image/imagem_perfil_edited_2025.png" alt="Foto de Perfil" class="profile-image">
                 <div class="profile-info">
                     <h2 class="profile-name">Daniel Brown</h2>
-                    <p class="profile-title">Desenvolvedor Flutter</p>
+                    <p class="profile-title" data-i18n="profile.title">Desenvolvedor Flutter</p>
                 </div>
             </div>
             <div class="menu-toggle">
@@ -26,11 +26,11 @@
             </div>
             <nav class="navigation">
                 <ul>
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#about"><i class="fas fa-user"></i> Sobre Mim</a></li>
-                    <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
-                    <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Projetos</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contato</a></li>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> <span data-i18n="nav.about">Sobre Mim</span></a></li>
+                    <li><a href="#skills"><i class="fas fa-cogs"></i> <span data-i18n="nav.skills">Skills</span></a></li>
+                    <li><a href="#portfolio"><i class="fas fa-briefcase"></i> <span data-i18n="nav.projects">Projetos</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contato</span></a></li>
                 </ul>
                  <div class="theme-switcher">
                     <i class="fas fa-sun"></i>
@@ -40,13 +40,35 @@
                     </label>
                     <i class="fas fa-moon"></i>
                 </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="pt" title="Português">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                            <rect fill="#009b3a" width="512" height="512"/>
+                            <polygon fill="#fedf00" points="256,64 480,256 256,448 32,256"/>
+                            <circle fill="#002776" cx="256" cy="256" r="96"/>
+                            <path fill="#fff" d="M160,256 Q256,192 352,256" stroke="#fff" stroke-width="12" fill="none"/>
+                        </svg>
+                    </button>
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                            <rect fill="#bf0a30" width="512" height="512"/>
+                            <rect fill="#fff" y="39" width="512" height="39"/>
+                            <rect fill="#fff" y="117" width="512" height="39"/>
+                            <rect fill="#fff" y="195" width="512" height="39"/>
+                            <rect fill="#fff" y="273" width="512" height="39"/>
+                            <rect fill="#fff" y="351" width="512" height="39"/>
+                            <rect fill="#fff" y="429" width="512" height="39"/>
+                            <rect fill="#002868" width="205" height="273"/>
+                        </svg>
+                    </button>
+                </div>
             </nav>
         </aside>
         <main class="main-content">
             <section id="home">
                 <div class="hero-content">
                     <h1>Daniel Brown R. M. dos Passos</h1>
-                    <p class="subtitle">Desenvolvedor de aplicativos móveis com Flutter</p>
+                    <p class="subtitle" data-i18n="home.subtitle">Desenvolvedor de aplicativos móveis com Flutter</p>
                     <div class="social-links">
                         <a href="https://github.com/DanielBrown1998" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/daniel-brown-rodrigues-m-dos-passos" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -54,53 +76,53 @@
                 </div>
             </section>
             <section id="about">
-                <h2>Sobre Mim</h2>
+                <h2 data-i18n="about.title">Sobre Mim</h2>
                 <div class="about-content">
-                    <p class="about-intro">
+                    <p class="about-intro" data-i18n="about.intro">
                         <strong>Desenvolvedor Mobile Flutter</strong> com foco em arquiteturas robustas e escaláveis. 
                         Especialista em <strong>Clean Architecture</strong>, <strong>SOLID</strong> e padrões de projeto (Command, Repository, Bloc, MVVM, Factory, Strategy), 
                         com experiência consolidada no ecossistema Dart/Flutter, CI/CD.
                     </p>
                     
                     <div class="about-section">
-                        <h3><i class="fas fa-code"></i> Stack Principal</h3>
+                        <h3><i class="fas fa-code"></i> <span data-i18n="about.stack">Stack Principal</span></h3>
                         <p>Flutter & Dart • BLoC/Cubit • Provider • GetIt • Firebase • SQLite • Go Router • CI/CD (Codemagic)</p>
                     </div>
                     
                     <div class="about-section">
-                        <h3><i class="fas fa-briefcase"></i> Experiência</h3>
+                        <h3><i class="fas fa-briefcase"></i> <span data-i18n="about.experience">Experiência</span></h3>
                         <ul class="experience-list">
-                            <li><strong>Desenvolvedor Mobile & Instrutor Flutter</strong> — UERJ Empresa Júnior <em>(Set/2025 - Atual)</em><br>
-                            Ciclo completo de desenvolvimento mobile e capacitação técnica da equipe.</li>
-                            <li><strong>Monitor de Arquitetura de Computadores</strong> — UERJ <em>(Abr/2024 - Atual)</em><br>
-                            Liderança de ensino para 40 alunos com aumento de 50% nas aprovações.</li>
-                            <li><strong>Instrutor em Segurança Digital</strong> <em>(Mai/2025 - Atual)</em><br>
-                            Desenvolvimento de conteúdo técnico sobre segurança digital.</li>
+                            <li><strong data-i18n="about.exp1.title">Desenvolvedor Mobile & Instrutor Flutter</strong> — UERJ Empresa Júnior <em>(Set/2025 - <span data-i18n="about.present">Atual</span>)</em><br>
+                            <span data-i18n="about.exp1.desc">Ciclo completo de desenvolvimento mobile e capacitação técnica da equipe.</span></li>
+                            <li><strong data-i18n="about.exp2.title">Monitor de Arquitetura de Computadores</strong> — UERJ <em>(Abr/2024 - <span data-i18n="about.present">Atual</span>)</em><br>
+                            <span data-i18n="about.exp2.desc">Liderança de ensino para 40 alunos com aumento de 50% nas aprovações.</span></li>
+                            <li><strong data-i18n="about.exp3.title">Instrutor em Segurança Digital</strong> <em>(Mai/2025 - <span data-i18n="about.present">Atual</span>)</em><br>
+                            <span data-i18n="about.exp3.desc">Desenvolvimento de conteúdo técnico sobre segurança digital.</span></li>
                         </ul>
                     </div>
                     
                     <div class="about-section">
-                        <h3><i class="fas fa-graduation-cap"></i> Formação</h3>
-                        <p>Bacharelado em Ciência da Computação — UERJ <em>(Previsão: 2027)</em><br>
-                        DIO Campus Experts Alumni — Programação de Computadores <em>(2025)</em></p>
+                        <h3><i class="fas fa-graduation-cap"></i> <span data-i18n="about.education">Formação</span></h3>
+                        <p><span data-i18n="about.edu1">Bacharelado em Ciência da Computação</span> — UERJ <em>(<span data-i18n="about.expected">Previsão</span>: 2027)</em><br>
+                        DIO Campus Experts Alumni — <span data-i18n="about.edu2">Programação de Computadores</span> <em>(2025)</em></p>
                     </div>
                 </div>
             </section>
             <section id="skills">
-                <h2>Habilidades Técnicas</h2>
+                <h2 data-i18n="skills.title">Habilidades Técnicas</h2>
                 <div class="skills-grid">
                     </div>
             </section>
             <section id="portfolio">
-                <h2>Meus Projetos</h2>
+                <h2 data-i18n="portfolio.title">Meus Projetos</h2>
                 <div class="projects-grid">
                     </div>
             </section>
             <section id="contact">
                 <div class="contact-container">
                     <div class="contact-info">
-                        <h2>Entre em Contato</h2>
-                        <p>Estou sempre aberto a novas oportunidades e colaborações.</p>
+                        <h2 data-i18n="contact.title">Entre em Contato</h2>
+                        <p data-i18n="contact.desc">Estou sempre aberto a novas oportunidades e colaborações.</p>
                         <a href="mailto:daniel_profissional1998@hotmail.com" class="email-link">daniel_profissional1998@hotmail.com</a>
                     </div>
                     <div class="contact-image">
