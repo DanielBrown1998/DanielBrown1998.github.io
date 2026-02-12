@@ -52,6 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Planning Poker': {
                     title: 'Planning Poker',
                     description: 'Uma aplicação Flutter multiplataforma para sessões de Planning Poker em tempo real.'
+                },
+                'Pet Keeper Lite': {
+                    title: 'Pet Keeper Lite',
+                    description: 'App consumidor para cadastro compartilhado de pets e controle básico de vacinas/tarefas, com foto e sincronização em tempo real.'
                 }
             }
         },
@@ -105,6 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Planning Poker': {
                     title: 'Planning Poker',
                     description: 'A cross-platform Flutter application for real-time Planning Poker sessions.'
+                },
+                'Pet Keeper Lite': {
+                    title: 'Pet Keeper Lite',
+                    description: 'Consumer app for shared pet registration and basic vaccine/task control, with photo and real-time synchronization.'
                 }
             }
         }
@@ -303,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'screenshots/api_rest_brasileirao/flutter_04.png'
             ],
             githubUrl: 'https://github.com/DanielBrown1998/api_rest_brasileirao',
-            technologies: ['Bloc', 'Clean Arch']
+            technologies: ['Bloc', 'Clean Arch', 'GetIt']
         },
         {
             key: 'Planning Poker',
@@ -315,6 +323,24 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             githubUrl: 'https://github.com/DanielBrown1998/planning_poker',
             technologies: ['Provider', 'Command', 'MVVM', 'Clean Arch', 'Go-Router', 'GetIt', 'Firebase Realtime Database']
+        },
+        {
+            key: 'Pet Keeper Lite',
+            image: 'screenshots/pet_keeper_lite/flutter_01.png',
+            screenshots: [
+                'screenshots/pet_keeper_lite/flutter_00.png',
+                'screenshots/pet_keeper_lite/flutter_01.png',
+                'screenshots/pet_keeper_lite/flutter_02.png',
+                'screenshots/pet_keeper_lite/flutter_03.png',
+                'screenshots/pet_keeper_lite/flutter_04.png',
+                'screenshots/pet_keeper_lite/flutter_05.png',
+                'screenshots/pet_keeper_lite/flutter_06.png',
+                'screenshots/pet_keeper_lite/flutter_07.png',
+                'screenshots/pet_keeper_lite/flutter_08.png',
+                'screenshots/pet_keeper_lite/flutter_09.png'
+            ],
+            githubUrl: 'https://github.com/DanielBrown1998/pet_keeper_lite',
+            technologies: ['GoRouter', 'GetIt', 'Firebase Firestore', 'Firebase AppCheck', 'Firebase Cloud Functions', 'Bloc', 'Clean Arch', 'Mocktail']
         }
     ];
 
