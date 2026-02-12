@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const skills = [
         { name: 'Flutter', icon: 'assets/ico/flutter_icon.svg' },
         { name: 'BLoC & Cubit', icon: 'assets/ico/bloc_cubit_icon.png' },
-        { name: 'Clean Architecture' },
+        { name: 'Clean Architecture', backgroundImage: 'assets/image/clean_architecture_schem.png' },
         { name: 'CI/CD com Codemagic', icon: 'assets/ico/codemagic_icon.png' },
         { name: 'Firebase', icon: 'assets/ico/firebase_icon.svg' },
         { name: 'APIs REST' },
@@ -267,6 +267,11 @@ document.addEventListener('DOMContentLoaded', () => {
         skills.forEach(skill => {
             const skillCard = document.createElement('div');
             skillCard.classList.add('skill-card');
+            
+            if (skill.backgroundImage) {
+                skillCard.classList.add('skill-card-with-bg');
+                skillCard.style.setProperty('--skill-bg-image', `url('${skill.backgroundImage}')`);
+            }
 
             let iconHtml = '';
             if (skill.icon) {
