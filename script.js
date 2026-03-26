@@ -4,27 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         pt: {
             'nav.home': 'Home',
-            'nav.about': 'Sobre Mim',
+            'nav.about': 'About Me',
             'nav.skills': 'Skills',
-            'nav.projects': 'Projetos',
-            'nav.contact': 'Contato',
-            'profile.title': 'Desenvolvedor Flutter',
-            'home.subtitle': 'Desenvolvedor de aplicativos móveis com Flutter',
-            'about.title': 'Sobre Mim',
-            'about.intro': '<strong>Desenvolvedor Mobile Flutter</strong> com foco em arquiteturas robustas e escaláveis. Especialista em <strong>Clean Architecture</strong>, <strong>SOLID</strong> e padrões de projeto (Command, Repository, Bloc, MVVM, Factory, Strategy), com experiência consolidada no ecossistema Dart/Flutter, CI/CD.',
-            'about.stack': 'Stack Principal',
-            'about.experience': 'Experiência',
-            'about.present': 'Atual',
-            'about.exp1.title': 'Desenvolvedor Mobile & Instrutor Flutter',
-            'about.exp1.desc': 'Ciclo completo de desenvolvimento mobile e capacitação técnica da equipe.',
-            'about.exp2.title': 'Monitor de Arquitetura de Computadores',
-            'about.exp2.desc': 'Liderança de ensino para 40 alunos com aumento de 50% nas aprovações.',
-            'about.exp3.title': 'Instrutor em Segurança Digital',
-            'about.exp3.desc': 'Desenvolvimento de conteúdo técnico sobre segurança digital.',
-            'about.education': 'Formação',
-            'about.edu1': 'Bacharelado em Ciência da Computação',
-            'about.expected': 'Previsão',
-            'about.edu2': 'Programação de Computadores',
+            'nav.projects': 'Projects',
+            'nav.contact': 'Contact',
+            'profile.title': 'Mobile Software Engineer',
+            'home.headline': 'Building High-Performance Mobile Applications.',
+            'home.subtitle': 'Mobile Software Engineer specializing in Flutter, Dart, and scalable software architectures.',
+            'home.cta.work': 'View My Work',
+            'home.cta.talk': "Let's Talk",
+            'about.title': 'About Me',
+            'about.bio.1': "I am a Mobile Software Engineer focused on cross-platform development with Flutter and Dart. I don't just write code; I engineer scalable, highly testable, and maintainable software architectures strictly following Clean Architecture and SOLID principles.",
+            'about.bio.2': 'Currently, I am executing a strategic migration of legacy Native Android (Kotlin) applications to Flutter for a US-based Healthtech, optimizing performance and eliminating critical bugs for the North American market. Concurrently, I serve as Head Mobile at STEM, where I lead product development, enforce rigorous Code Review standards, and build automated CI/CD pipelines (GitHub Actions, Codemagic) to accelerate software delivery.',
+            'about.bio.3': 'My technical decisions are driven by business rules and product complexity, allowing me to implement the most efficient state management solutions (BLOC, Riverpod, Provider) and robust backend integrations (Firebase, Google Cloud Platform).',
+            'about.bio.4': '<strong>I build solutions designed to scale.</strong>',
             'skills.title': 'Habilidades Técnicas',
             'portfolio.title': 'Meus Projetos',
             'contact.title': 'Entre em Contato',
@@ -65,23 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
             'nav.skills': 'Skills',
             'nav.projects': 'Projects',
             'nav.contact': 'Contact',
-            'profile.title': 'Flutter Developer',
-            'home.subtitle': 'Mobile application developer with Flutter',
+            'profile.title': 'Mobile Software Engineer',
+            'home.headline': 'Building High-Performance Mobile Applications.',
+            'home.subtitle': 'Mobile Software Engineer specializing in Flutter, Dart, and scalable software architectures.',
+            'home.cta.work': 'View My Work',
+            'home.cta.talk': "Let's Talk",
             'about.title': 'About Me',
-            'about.intro': '<strong>Flutter Mobile Developer</strong> focused on robust and scalable architectures. Specialist in <strong>Clean Architecture</strong>, <strong>SOLID</strong> and design patterns (Command, Repository, Bloc, MVVM, Factory, Strategy), with consolidated experience in the Dart/Flutter ecosystem, CI/CD.',
-            'about.stack': 'Main Stack',
-            'about.experience': 'Experience',
-            'about.present': 'Present',
-            'about.exp1.title': 'Mobile Developer & Flutter Instructor',
-            'about.exp1.desc': 'Complete mobile development cycle and technical training of the team.',
-            'about.exp2.title': 'Computer Architecture Teaching Assistant',
-            'about.exp2.desc': 'Teaching leadership for 40 students with 50% increase in approvals.',
-            'about.exp3.title': 'Digital Security Instructor',
-            'about.exp3.desc': 'Development of technical content on digital security.',
-            'about.education': 'Education',
-            'about.edu1': 'Bachelor in Computer Science',
-            'about.expected': 'Expected',
-            'about.edu2': 'Computer Programming',
+            'about.bio.1': "I am a Mobile Software Engineer focused on cross-platform development with Flutter and Dart. I don't just write code; I engineer scalable, highly testable, and maintainable software architectures strictly following Clean Architecture and SOLID principles.",
+            'about.bio.2': 'Currently, I am executing a strategic migration of legacy Native Android (Kotlin) applications to Flutter for a US-based Healthtech, optimizing performance and eliminating critical bugs for the North American market. Concurrently, I serve as Head Mobile at STEM, where I lead product development, enforce rigorous Code Review standards, and build automated CI/CD pipelines (GitHub Actions, Codemagic) to accelerate software delivery.',
+            'about.bio.3': 'My technical decisions are driven by business rules and product complexity, allowing me to implement the most efficient state management solutions (BLOC, Riverpod, Provider) and robust backend integrations (Firebase, Google Cloud Platform).',
+            'about.bio.4': '<strong>I build solutions designed to scale.</strong>',
             'skills.title': 'Technical Skills',
             'portfolio.title': 'My Projects',
             'contact.title': 'Get in Touch',
@@ -118,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let currentLang = localStorage.getItem('language') || 'pt';
+    let currentLang = 'en';
 
     // --- Language Switcher ---
     const langBtns = document.querySelectorAll('.lang-btn');
@@ -126,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setLanguage(lang) {
         currentLang = lang;
         localStorage.setItem('language', lang);
-        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+        document.documentElement.lang = 'en';
         
         // Update button states
         langBtns.forEach(btn => {
@@ -152,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            setLanguage(btn.dataset.lang);
+            setLanguage('en');
         });
     });
 
