@@ -1,113 +1,355 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Brown - Mobile Software Engineer</title>
+    <meta name="description" content="Portfólio de Daniel Brown, desenvolvedor de software especializado em Flutter, arquitetura escalável e soluções mobile.">
+    <meta name="theme-color" content="#0b1f33">
+    <title>Daniel Brown — Desenvolvedor de Software</title>
+    <link rel="icon" type="image/png" href="assets/favicon_2026.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon_2026.png">
-    <link rel="shortcut icon" type="image/png" href="assets/ico/favicon_2026.png">
-    <link rel="apple-touch-icon" href="assets/ico/favicon_2026.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="portfolio-container">
-        <aside class="sidebar">
-            <div class="profile">
-                <div class="profile-image-frame">
-                    <img src="assets/image/imagem_perfil_edited_2026.jpg" alt="Profile Photo" class="profile-image">
-                </div>
-                <div class="profile-info">
-                    <h2 class="profile-name">Daniel Brown</h2>
-                    <p class="profile-title" data-i18n="profile.title">Mobile Software Engineer</p>
-                </div>
-            </div>
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
-                    <li><a href="#about"><i class="fas fa-user"></i> <span data-i18n="nav.about">About Me</span></a></li>
-                    <li><a href="#skills"><i class="fas fa-cogs"></i> <span data-i18n="nav.skills">Skills</span></a></li>
-                    <li><a href="#portfolio"><i class="fas fa-briefcase"></i> <span data-i18n="nav.projects">Projects</span></a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
-                </ul>
-                 <div class="theme-switcher">
-                    <i class="fas fa-sun"></i>
-                    <label class="switch">
-                        <input type="checkbox" id="theme-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                    <i class="fas fa-moon"></i>
-                </div>
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="en" title="English">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
-                            <rect fill="#bf0a30" width="512" height="512"/>
-                            <rect fill="#fff" y="39" width="512" height="39"/>
-                            <rect fill="#fff" y="117" width="512" height="39"/>
-                            <rect fill="#fff" y="195" width="512" height="39"/>
-                            <rect fill="#fff" y="273" width="512" height="39"/>
-                            <rect fill="#fff" y="351" width="512" height="39"/>
-                            <rect fill="#fff" y="429" width="512" height="39"/>
-                            <rect fill="#002868" width="205" height="273"/>
-                        </svg>
-                    </button>
-                </div>
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a class="brand" href="#inicio" aria-label="Ir para o início">
+                <span class="brand-mark" aria-hidden="true">DB</span>
+                <span>Daniel Brown</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+                <a href="#sobre">Sobre</a>
+                <a href="#experiencia">Experiência</a>
+                <a href="#stack">Stack</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#formacao">Formação</a>
+                <a href="#contato">Contato</a>
             </nav>
-        </aside>
-        <main class="main-content">
-            <section id="home">
-                <div class="hero-content">
-                    <h1 data-i18n="home.headline">Building High-Performance Mobile Applications.</h1>
-                    <p class="subtitle" data-i18n="home.subtitle">Mobile Software Engineer specializing in Flutter, Dart, and scalable software architectures.</p>
-                    <div class="hero-cta">
-                        <a href="#portfolio" class="cta-button primary" data-i18n="home.cta.work">View My Work</a>
-                        <a href="#contact" class="cta-button secondary" data-i18n="home.cta.talk">Let's Talk</a>
+
+            <button class="theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema">
+                <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8Z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="inicio">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="status-dot"></span> Disponível para projetos remotos</p>
+                    <h1>Software mobile sólido, do produto à arquitetura.</h1>
+                    <p class="hero-text">
+                        Desenvolvedor Mobile Pleno especializado em Flutter e Dart, com liderança técnica,
+                        foco em qualidade e uma visão cada vez mais completa de backend e cloud.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projetos">Conheça meu trabalho</a>
+                        <a class="button button-secondary" href="curriculo_daniel_brown_ATS_v2.pdf" target="_blank" rel="noopener">
+                            Ver currículo
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                        </a>
                     </div>
-                    <div class="social-links">
-                        <a href="https://github.com/DanielBrown1998" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/daniel-brown-rodrigues-m-dos-passos" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <div class="hero-links" aria-label="Redes profissionais">
+                        <a href="https://github.com/DanielBrown1998" target="_blank" rel="noopener">
+                            <img src="assets/icons/github.svg" alt=""> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/daniel-brown-rodrigues-m-dos-passos" target="_blank" rel="noopener">
+                            <img src="assets/icons/linkedin.svg" alt=""> LinkedIn
+                        </a>
                     </div>
                 </div>
-            </section>
-            <section id="about">
-                <h2 data-i18n="about.title">About Me</h2>
-                <div class="about-content">
-                    <p class="about-bio" data-i18n="about.bio.1">I am a Mobile Software Engineer focused on cross-platform development with Flutter and Dart. I don't just write code; I engineer scalable, highly testable, and maintainable software architectures strictly following Clean Architecture and SOLID principles.</p>
-                    <p class="about-bio" data-i18n="about.bio.2">Currently, I am executing a strategic migration of legacy Native Android (Kotlin) applications to Flutter for a US-based Healthtech, optimizing performance and eliminating critical bugs for the North American market. Concurrently, I serve as Head Mobile at STEM, where I lead product development, enforce rigorous Code Review standards, and build automated CI/CD pipelines (GitHub Actions, Codemagic) to accelerate software delivery.</p>
-                    <p class="about-bio" data-i18n="about.bio.3">My technical decisions are driven by business rules and product complexity, allowing me to implement the most efficient state management solutions (BLOC, Riverpod, Provider) and robust backend integrations (Firebase, Google Cloud Platform).</p>
-                    <p class="about-intro" data-i18n="about.bio.4"><strong>I build solutions designed to scale.</strong></p>
-                </div>
-            </section>
-            <section id="skills">
-                <h2 data-i18n="skills.title">Habilidades Técnicas</h2>
-                <div class="skills-grid">
+
+                <div class="hero-visual" aria-label="Foto profissional de Daniel Brown">
+                    <div class="portrait-frame">
+                        <img src="assets/image/imagem_perfil_edited_2026.jpg" alt="Daniel Brown, desenvolvedor de software">
                     </div>
-            </section>
-            <section id="portfolio">
-                <h2 data-i18n="portfolio.title">Meus Projetos</h2>
+                    <div class="hero-badge">
+                        <span>Atuação atual</span>
+                        <strong>Mobile · Backend · Cloud</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proof-bar" aria-label="Destaques profissionais">
+            <div class="container proof-grid">
+                <div><strong>Pleno</strong><span>Desenvolvimento mobile</span></div>
+                <div><strong>8 pessoas</strong><span>Mentoria e liderança</span></div>
+                <div><strong>Android + iOS</strong><span>Produtos multiplataforma</span></div>
+                <div><strong>B1</strong><span>Inglês profissional</span></div>
+            </div>
+        </section>
+
+        <section class="section" id="sobre">
+            <div class="container two-columns">
+                <div class="section-heading">
+                    <p class="eyebrow">Sobre</p>
+                    <h2>Engenharia com contexto, não apenas código.</h2>
+                </div>
+                <div class="about-copy">
+                    <p class="lead">
+                        Transformo regras de negócio em aplicações confiáveis, testáveis e preparadas para evoluir.
+                    </p>
+                    <p>
+                        Minha base está no ecossistema Flutter, com experiência em Clean Architecture, SOLID,
+                        BLoC, Riverpod, Firebase, integrações REST e pipelines CI/CD. Atuo tanto na entrega do
+                        produto quanto nas decisões que sustentam o crescimento do time e do código.
+                    </p>
+                    <p>
+                        Hoje amplio essa visão com <strong>Go, Gin, AWS e Docker</strong>, aproximando mobile,
+                        backend e infraestrutura para construir soluções mais completas.
+                    </p>
+                    <div class="principles">
+                        <span>Clareza técnica</span>
+                        <span>Qualidade contínua</span>
+                        <span>Visão de produto</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted" id="experiencia">
+            <div class="container">
+                <div class="section-heading heading-row">
+                    <div>
+                        <p class="eyebrow">Experiência</p>
+                        <h2>Responsabilidade crescente, impacto mensurável.</h2>
+                    </div>
+                    <a class="text-link" href="curriculo_daniel_brown_ATS_v2.pdf" target="_blank" rel="noopener">Currículo completo ↗</a>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-meta">
+                            <span>Mar 2026 — atual</span>
+                            <span>Miami · remoto</span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="role-heading">
+                                <div>
+                                    <h3>Desenvolvedor Mobile Flutter Pleno</h3>
+                                    <p>Doctor Meddie</p>
+                                </div>
+                                <img src="assets/doctor-meddie-logo.png" alt="Doctor Meddie">
+                            </div>
+                            <p>Definição da arquitetura Flutter para Android e iOS em uma healthtech internacional.</p>
+                            <ul>
+                                <li>Clean Architecture, SOLID, BLoC e Riverpod aplicados conforme a complexidade.</li>
+                                <li>Testes unitários, de widget e E2E para reduzir regressões.</li>
+                                <li>CI/CD com Codemagic e GitHub Actions para releases mais seguras.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-meta">
+                            <span>Set 2025 — atual</span>
+                            <span>Rio de Janeiro</span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="role-heading">
+                                <div>
+                                    <h3>Head de Desenvolvimento Mobile</h3>
+                                    <p>STEM — Empresa Júnior da UERJ</p>
+                                </div>
+                            </div>
+                            <p>Liderança técnica do núcleo mobile e padronização da engenharia entre projetos.</p>
+                            <ul>
+                                <li>Mentoria e code review para um time de 8 desenvolvedores.</li>
+                                <li>Definição de arquitetura, gerenciamento de estado e critérios técnicos.</li>
+                                <li>Integrações Firebase e REST com automação de qualidade em pull requests.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-meta">
+                            <span>Abr 2024 — atual</span>
+                            <span>UERJ</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Monitor de Arquitetura de Computadores</h3>
+                            <p>Universidade do Estado do Rio de Janeiro</p>
+                            <p class="impact">+50% na taxa de aprovação</p>
+                            <p>Análise de desempenho com Python e apoio didático individual para mais de 40 alunos.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="stack">
+            <div class="container">
+                <div class="section-heading heading-row">
+                    <div>
+                        <p class="eyebrow">Stack técnica</p>
+                        <h2>Ferramentas escolhidas pelo problema.</h2>
+                    </div>
+                    <p class="heading-note">Profundidade em mobile.<br>Expansão para backend e cloud.</p>
+                </div>
+
+                <div class="stack-layout">
+                    <article class="stack-group stack-primary">
+                        <div class="stack-label">
+                            <span>Core</span>
+                            <h3>Mobile & arquitetura</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech"><img src="assets/icons/flutter.svg" alt=""><span><strong>Flutter</strong><small>Multiplataforma</small></span></div>
+                            <div class="tech"><img src="assets/icons/dart.svg" alt=""><span><strong>Dart</strong><small>Linguagem principal</small></span></div>
+                            <div class="tech"><img src="assets/icons/android.svg" alt=""><span><strong>Android</strong><small>Kotlin & nativo</small></span></div>
+                            <div class="tech"><img src="assets/icons/apple.svg" alt=""><span><strong>iOS</strong><small>Integrações nativas</small></span></div>
+                            <div class="tech"><img src="assets/icons/firebase.svg" alt=""><span><strong>Firebase</strong><small>Auth, Firestore, Functions</small></span></div>
+                            <div class="tech"><img src="assets/icons/githubactions.svg" alt=""><span><strong>CI/CD</strong><small>Actions & Codemagic</small></span></div>
+                        </div>
+                    </article>
+
+                    <article class="stack-group stack-learning">
+                        <div class="stack-label">
+                            <span>Em expansão</span>
+                            <h3>Backend & infraestrutura</h3>
+                            <p>Novas competências aplicadas em estudos e projetos.</p>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech"><img src="assets/icons/go.svg" alt=""><span><strong>Go</strong><small>Backend performático</small></span></div>
+                            <div class="tech"><img src="assets/icons/gin.svg" alt=""><span><strong>Gin</strong><small>APIs REST</small></span></div>
+                            <div class="tech"><img src="assets/icons/aws.svg" alt=""><span><strong>AWS</strong><small>Serviços cloud</small></span></div>
+                            <div class="tech"><img src="assets/icons/docker.svg" alt=""><span><strong>Docker</strong><small>Ambientes consistentes</small></span></div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="skills-line">
+                    <span>Clean Architecture</span><span>SOLID</span><span>DDD</span><span>BLoC</span>
+                    <span>Riverpod</span><span>REST APIs</span><span>Testes automatizados</span><span>Git</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="projetos">
+            <div class="container">
+                <div class="section-heading heading-row">
+                    <div>
+                        <p class="eyebrow">Projetos selecionados</p>
+                        <h2>Soluções construídas para uso real.</h2>
+                    </div>
+                    <a class="text-link" href="https://github.com/DanielBrown1998" target="_blank" rel="noopener">Todos no GitHub ↗</a>
+                </div>
+
                 <div class="projects-grid">
-                    </div>
-            </section>
-            <section id="contact">
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h2 data-i18n="contact.title">Entre em Contato</h2>
-                        <p data-i18n="contact.desc">Estou sempre aberto a novas oportunidades e colaborações.</p>
-                        <a href="mailto:daniel_profissional1998@hotmail.com" class="email-link">daniel_profissional1998@hotmail.com</a>
-                    </div>
-                    <div class="contact-image">
-                        <img src="assets/image/background_section_contacts.png" alt="Contact">
+                    <article class="project-card project-featured">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <p class="project-type">EdTech · Mobile</p>
+                            <h3>Studie</h3>
+                            <p>Plano de estudos gerado por IA e consultas contextualizadas com referências acadêmicas, concebido para evolução profissional e acadêmica.</p>
+                            <div class="project-tags"><span>Flutter</span><span>BLoC</span><span>Offline-first</span><span>IA</span></div>
+                            <a href="https://github.com/DanielBrown1998/studie_public" target="_blank" rel="noopener">Ver repositório ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <p class="project-type">Esportes · Mobile</p>
+                            <h3>Brasileirão API</h3>
+                            <p>Aplicativo com dados do campeonato brasileiro, incluindo tabelas, resultados e estatísticas.</p>
+                            <div class="project-tags"><span>Flutter</span><span>BLoC</span><span>Clean Arch</span></div>
+                            <a href="https://github.com/DanielBrown1998/api_rest_brasileirao" target="_blank" rel="noopener">Ver repositório ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <p class="project-type">Produtividade · Real-time</p>
+                            <h3>Planning Poker</h3>
+                            <p>Sessões de estimativa ágil em tempo real, disponíveis em múltiplas plataformas.</p>
+                            <div class="project-tags"><span>Flutter</span><span>MVVM</span><span>Firebase</span></div>
+                            <a href="https://github.com/DanielBrown1998/planning_poker" target="_blank" rel="noopener">Ver repositório ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <p class="project-type">Pet care · Mobile</p>
+                            <h3>Pet Keeper Lite</h3>
+                            <p>Gestão compartilhada de pets, vacinas e tarefas, com fotos e sincronização em tempo real.</p>
+                            <div class="project-tags"><span>Flutter</span><span>Firestore</span><span>Testes</span></div>
+                            <a href="https://github.com/DanielBrown1998/pet_keeper_lite" target="_blank" rel="noopener">Ver repositório ↗</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="formacao">
+            <div class="container education-grid">
+                <div class="education-intro">
+                    <p class="eyebrow">Formação acadêmica</p>
+                    <h2>Ciência da Computação na UERJ.</h2>
+                    <p>Bacharelado em andamento, com formação técnica consistente e participação ativa na universidade como monitor e líder na empresa júnior.</p>
+                    <div class="university">
+                        <img src="assets/uerj-logo.png" alt="Logo da Universidade do Estado do Rio de Janeiro">
+                        <div><strong>Universidade do Estado do Rio de Janeiro</strong><span>2022 — 2028 · em andamento</span></div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div class="academic-card">
+                    <div class="academic-main">
+                        <span>Coeficiente de rendimento</span>
+                        <strong>7,44<small>/10</small></strong>
+                    </div>
+                    <div class="academic-stats">
+                        <div><strong>148</strong><span>créditos concluídos</span></div>
+                        <div><strong>2.220h</strong><span>carga horária concluída</span></div>
+                    </div>
+                    <div class="academic-highlights">
+                        <p>Destaques acadêmicos</p>
+                        <ul>
+                            <li><span>10,0</span> POO I, Redes I e II, Linguagens de Programação</li>
+                            <li><span>9,50</span> Lógica Matemática</li>
+                            <li><span>9,20</span> Qualidade de Software</li>
+                            <li><span>9,00</span> Controle e Administração de Projetos</li>
+                        </ul>
+                    </div>
+                    <small class="data-note">Dados do histórico acadêmico emitido em junho de 2026.</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contato">
+            <div class="container contact-inner">
+                <div>
+                    <p class="eyebrow">Contato</p>
+                    <h2>Vamos construir algo sólido?</h2>
+                    <p>Estou aberto a oportunidades, projetos e conversas sobre tecnologia.</p>
+                </div>
+                <div class="contact-actions">
+                    <a class="button button-light" href="mailto:daniel.brown.dev1998@gmail.com">daniel.brown.dev1998@gmail.com</a>
+                    <div class="contact-social">
+                        <a href="https://github.com/DanielBrown1998" target="_blank" rel="noopener">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/daniel-brown-rodrigues-m-dos-passos" target="_blank" rel="noopener">LinkedIn ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>© <span id="current-year"></span> Daniel Brown</span>
+            <a href="#top">Voltar ao topo ↑</a>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

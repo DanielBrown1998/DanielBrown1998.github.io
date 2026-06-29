@@ -1,377 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const header = document.querySelector('.site-header');
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.main-nav');
+    const themeButton = document.querySelector('.theme-toggle');
+    const navLinks = [...document.querySelectorAll('.main-nav a')];
 
-    // --- Translations ---
-    const translations = {
-        pt: {
-            'nav.home': 'Home',
-            'nav.about': 'About Me',
-            'nav.skills': 'Skills',
-            'nav.projects': 'Projects',
-            'nav.contact': 'Contact',
-            'profile.title': 'Mobile Software Engineer',
-            'home.headline': 'Building High-Performance Mobile Applications.',
-            'home.subtitle': 'Mobile Software Engineer specializing in Flutter, Dart, and scalable software architectures.',
-            'home.cta.work': 'View My Work',
-            'home.cta.talk': "Let's Talk",
-            'about.title': 'About Me',
-            'about.bio.1': "I am a Mobile Software Engineer focused on cross-platform development with Flutter and Dart. I don't just write code; I engineer scalable, highly testable, and maintainable software architectures strictly following Clean Architecture and SOLID principles.",
-            'about.bio.2': 'Currently, I am executing a strategic migration of legacy Native Android (Kotlin) applications to Flutter for a US-based Healthtech, optimizing performance and eliminating critical bugs for the North American market. Concurrently, I serve as Head Mobile at STEM, where I lead product development, enforce rigorous Code Review standards, and build automated CI/CD pipelines (GitHub Actions, Codemagic) to accelerate software delivery.',
-            'about.bio.3': 'My technical decisions are driven by business rules and product complexity, allowing me to implement the most efficient state management solutions (BLOC, Riverpod, Provider) and robust backend integrations (Firebase, Google Cloud Platform).',
-            'about.bio.4': '<strong>I build solutions designed to scale.</strong>',
-            'skills.title': 'Habilidades Técnicas',
-            'portfolio.title': 'Meus Projetos',
-            'contact.title': 'Entre em Contato',
-            'contact.desc': 'Estou sempre aberto a novas oportunidades e colaborações.',
-            'project.viewGithub': 'Ver no GitHub',
-            skills: {
-                'Flutter': { name: 'Flutter', description: 'Desenvolvimento multiplataforma com alta performance.' },
-                'BLoC & Cubit': { name: 'BLoC & Cubit', description: 'Gerenciamento de estado robusto e escalável.' },
-                'Clean Architecture': { name: 'Clean Architecture', description: 'Código limpo, testável e de fácil manutenção.' },
-                'CI/CD com Codemagic': { name: 'CI/CD com Codemagic', description: 'Automação de builds, testes e deploys.' },
-                'Firebase': { name: 'Firebase', description: 'Backend como serviço para apps modernos.' },
-                'APIs REST': { name: 'APIs REST', description: 'Integração com serviços de terceiros.' },
-                'Offline-First': { name: 'Offline-First', description: 'Apps funcionais com ou sem conexão.' },
-                'GitHub': { name: 'GitHub', description: 'Controle de versão e colaboração.' }
-            },
-            projects: {
-                'Projeto Studie': {
-                    title: 'Projeto Studie',
-                    description: 'Um aplicativo pensado para estudantes e desenvolvedores que desejam crescer profissionalmente e academicamente, plano de estudos gerado por I.A, consultas de conceitos contextualizado com as melhores referencias academicas.'
-                },
-                'API Rest Brasileirão': {
-                    title: 'API Rest Brasileirão',
-                    description: 'Um app que implementa a API BRASILEIRAO que fornece dados em tempo real sobre o campeonato brasileiro de futebol, incluindo tabelas, resultados e estatísticas.'
-                },
-                'Planning Poker': {
-                    title: 'Planning Poker',
-                    description: 'Uma aplicação Flutter multiplataforma para sessões de Planning Poker em tempo real.'
-                },
-                'Pet Keeper Lite': {
-                    title: 'Pet Keeper Lite',
-                    description: 'App consumidor para cadastro compartilhado de pets e controle básico de vacinas/tarefas, com foto e sincronização em tempo real.'
-                }
-            }
-        },
-        en: {
-            'nav.home': 'Home',
-            'nav.about': 'About Me',
-            'nav.skills': 'Skills',
-            'nav.projects': 'Projects',
-            'nav.contact': 'Contact',
-            'profile.title': 'Mobile Software Engineer',
-            'home.headline': 'Building High-Performance Mobile Applications.',
-            'home.subtitle': 'Mobile Software Engineer specializing in Flutter, Dart, and scalable software architectures.',
-            'home.cta.work': 'View My Work',
-            'home.cta.talk': "Let's Talk",
-            'about.title': 'About Me',
-            'about.bio.1': "I am a Mobile Software Engineer focused on cross-platform development with Flutter and Dart. I don't just write code; I engineer scalable, highly testable, and maintainable software architectures strictly following Clean Architecture and SOLID principles.",
-            'about.bio.2': 'Currently, I am executing a strategic migration of legacy Native Android (Kotlin) applications to Flutter for a US-based Healthtech, optimizing performance and eliminating critical bugs for the North American market. Concurrently, I serve as Head Mobile at STEM, where I lead product development, enforce rigorous Code Review standards, and build automated CI/CD pipelines (GitHub Actions, Codemagic) to accelerate software delivery.',
-            'about.bio.3': 'My technical decisions are driven by business rules and product complexity, allowing me to implement the most efficient state management solutions (BLOC, Riverpod, Provider) and robust backend integrations (Firebase, Google Cloud Platform).',
-            'about.bio.4': '<strong>I build solutions designed to scale.</strong>',
-            'skills.title': 'Technical Skills',
-            'portfolio.title': 'My Projects',
-            'contact.title': 'Get in Touch',
-            'contact.desc': 'I am always open to new opportunities and collaborations.',
-            'project.viewGithub': 'View on GitHub',
-            skills: {
-                'Flutter': { name: 'Flutter', description: 'Cross-platform development with high performance.' },
-                'BLoC & Cubit': { name: 'BLoC & Cubit', description: 'Robust and scalable state management.' },
-                'Clean Architecture': { name: 'Clean Architecture', description: 'Clean, testable and maintainable code.' },
-                'CI/CD com Codemagic': { name: 'CI/CD with Codemagic', description: 'Automation of builds, tests and deploys.' },
-                'Firebase': { name: 'Firebase', description: 'Backend as a service for modern apps.' },
-                'APIs REST': { name: 'REST APIs', description: 'Integration with third-party services.' },
-                'Offline-First': { name: 'Offline-First', description: 'Functional apps with or without connection.' },
-                'GitHub': { name: 'GitHub', description: 'Version control and collaboration.' }
-            },
-            projects: {
-                'Projeto Studie': {
-                    title: 'Studie Project',
-                    description: 'An app designed for students and developers who want to grow professionally and academically, AI-generated study plans, concept queries contextualized with the best academic references.'
-                },
-                'API Rest Brasileirão': {
-                    title: 'Brazilian League REST API',
-                    description: 'An app that implements the BRASILEIRAO API that provides real-time data about the Brazilian football championship, including tables, results and statistics.'
-                },
-                'Planning Poker': {
-                    title: 'Planning Poker',
-                    description: 'A cross-platform Flutter application for real-time Planning Poker sessions.'
-                },
-                'Pet Keeper Lite': {
-                    title: 'Pet Keeper Lite',
-                    description: 'Consumer app for shared pet registration and basic vaccine/task control, with photo and real-time synchronization.'
-                }
-            }
-        }
-    };
-
-    let currentLang = 'en';
-
-    // --- Language Switcher ---
-    const langBtns = document.querySelectorAll('.lang-btn');
-    
-    function setLanguage(lang) {
-        currentLang = lang;
-        localStorage.setItem('language', lang);
-        document.documentElement.lang = 'en';
-        
-        // Update button states
-        langBtns.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-        
-        // Update all elements with data-i18n attribute
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                if (el.tagName === 'INPUT') {
-                    el.placeholder = translations[lang][key];
-                } else {
-                    el.innerHTML = translations[lang][key];
-                }
-            }
-        });
-        
-        // Reload skills and projects with new language
-        loadSkills();
-        loadProjects();
-    }
-
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            setLanguage('en');
-        });
-    });
-
-    // --- Menu Toggle for Mobile ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.navigation');
-
-    if (menuToggle && navigation) {
-        menuToggle.addEventListener('click', () => {
-            navigation.classList.toggle('active');
-        });
-    }
-
-    // --- Close menu when a link is clicked ---
-    const navLinks = document.querySelectorAll('.navigation a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navigation.classList.contains('active')) {
-                navigation.classList.remove('active');
-            }
-        });
-    });
-
-
-    // --- Theme Switcher ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-        body.setAttribute('data-theme', 'dark');
-        themeToggle.checked = true;
+        root.dataset.theme = 'dark';
     }
 
-    themeToggle.addEventListener('change', () => {
-        if (themeToggle.checked) {
-            body.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            body.removeAttribute('data-theme');
+    themeButton.addEventListener('click', () => {
+        const isDark = root.dataset.theme === 'dark';
+        if (isDark) {
+            delete root.dataset.theme;
             localStorage.setItem('theme', 'light');
+        } else {
+            root.dataset.theme = 'dark';
+            localStorage.setItem('theme', 'dark');
         }
     });
 
-    // --- Active Nav Link on Scroll ---
-    const sections = document.querySelectorAll('section');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
+    const closeMenu = () => {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Abrir menu');
+        document.body.classList.remove('menu-open');
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        observer.observe(section);
+    menuButton.addEventListener('click', () => {
+        const willOpen = !navigation.classList.contains('open');
+        navigation.classList.toggle('open', willOpen);
+        menuButton.setAttribute('aria-expanded', String(willOpen));
+        menuButton.setAttribute('aria-label', willOpen ? 'Fechar menu' : 'Abrir menu');
+        document.body.classList.toggle('menu-open', willOpen);
     });
 
-    // --- About Section Background on Scroll ---
-    const aboutSection = document.getElementById('about');
-    
-    const aboutObserver = new IntersectionObserver((entries) => {
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const sectionObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                aboutSection.classList.add('in-view');
-            } else {
-                aboutSection.classList.remove('in-view');
-            }
+            if (!entry.isIntersecting) return;
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+            });
         });
-    }, {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.3
-    });
+    }, { rootMargin: '-30% 0px -60%', threshold: 0 });
 
-    if (aboutSection) {
-        aboutObserver.observe(aboutSection);
-    }
-    
-    // --- Dynamic Skills Loading ---
-    const skills = [
-        { name: 'Flutter', icon: 'assets/ico/flutter_icon.svg' },
-        { name: 'BLoC & Cubit', icon: 'assets/ico/bloc_cubit_icon.png' },
-        { name: 'Clean Architecture', backgroundImage: 'assets/image/clean_architecture_schem.png' },
-        { name: 'CI/CD com Codemagic', icon: 'assets/ico/codemagic_icon.png' },
-        { name: 'Firebase', icon: 'assets/ico/firebase_icon.svg' },
-        { name: 'APIs REST' },
-        { name: 'Offline-First', icon: 'assets/ico/sqlite_icon.svg' },
-        { name: 'GitHub', icon: 'assets/ico/github_icon.svg' }
-    ];
+    sections.forEach(section => sectionObserver.observe(section));
 
-    const skillsGrid = document.querySelector('.skills-grid');
-    
-    function loadSkills() {
-        if (!skillsGrid) return;
-        skillsGrid.innerHTML = '';
-        
-        skills.forEach(skill => {
-            const skillCard = document.createElement('div');
-            skillCard.classList.add('skill-card');
-            
-            if (skill.backgroundImage) {
-                skillCard.classList.add('skill-card-with-bg');
-                skillCard.style.setProperty('--skill-bg-image', `url('${skill.backgroundImage}')`);
-            }
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 10);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
-            let iconHtml = '';
-            if (skill.icon) {
-                iconHtml = `<img src="${skill.icon}" alt="${skill.name}">`;
-            } else {
-                iconHtml = `<div class="no-icon"><i class="fas fa-layer-group"></i></div>`;
-            }
-
-            const translatedSkill = translations[currentLang].skills[skill.name] || { name: skill.name, description: '' };
-
-            skillCard.innerHTML = `
-                ${iconHtml}
-                <h3>${translatedSkill.name}</h3>
-                <p>${translatedSkill.description}</p>
-            `;
-            skillsGrid.appendChild(skillCard);
-        });
-    }
-
-
-    // --- Dynamic Project Loading ---
-    const projects = [
-        {
-            key: 'Projeto Studie',
-            image: 'screenshots/studie/flutter_02.png',
-            screenshots: [
-                'screenshots/studie/flutter_01.png',
-                'screenshots/studie/flutter_02.png',
-                'screenshots/studie/flutter_03.png',
-                'screenshots/studie/flutter_04.png',
-            ],
-            githubUrl: 'https://github.com/DanielBrown1998/studie_public',
-            technologies: ['Bloc', 'Clean Arch', 'I.A Integration', 'SQLite', 'Offline-First', 'Codemagic', 'GitHub Projects', 'Google Crashlytics', 'Google Analytics']
-        },
-        {
-            key: 'API Rest Brasileirão',
-            image: 'screenshots/api_rest_brasileirao/flutter_01.png',
-            screenshots: [
-                'screenshots/api_rest_brasileirao/flutter_01.png',
-                'screenshots/api_rest_brasileirao/flutter_02.png',
-                'screenshots/api_rest_brasileirao/flutter_03.png',
-                'screenshots/api_rest_brasileirao/flutter_04.png'
-            ],
-            githubUrl: 'https://github.com/DanielBrown1998/api_rest_brasileirao',
-            technologies: ['Bloc', 'Clean Arch', 'GetIt']
-        },
-        {
-            key: 'Planning Poker',
-            image: 'screenshots/planning_poker/flutter_01.png',
-            screenshots: [
-                'screenshots/planning_poker/flutter_01.png',
-                'screenshots/planning_poker/flutter_02.png',
-                'screenshots/planning_poker/flutter_03.png'
-            ],
-            githubUrl: 'https://github.com/DanielBrown1998/planning_poker',
-            technologies: ['Provider', 'Command', 'MVVM', 'Clean Arch', 'Go-Router', 'GetIt', 'Firebase Realtime Database']
-        },
-        {
-            key: 'Pet Keeper Lite',
-            image: 'screenshots/pet_keeper_lite/flutter_01.png',
-            screenshots: [
-                'screenshots/pet_keeper_lite/flutter_00.png',
-                'screenshots/pet_keeper_lite/flutter_01.png',
-                'screenshots/pet_keeper_lite/flutter_02.png',
-                'screenshots/pet_keeper_lite/flutter_03.png',
-                'screenshots/pet_keeper_lite/flutter_04.png',
-                'screenshots/pet_keeper_lite/flutter_05.png',
-                'screenshots/pet_keeper_lite/flutter_06.png',
-                'screenshots/pet_keeper_lite/flutter_07.png',
-                'screenshots/pet_keeper_lite/flutter_08.png',
-                'screenshots/pet_keeper_lite/flutter_09.png'
-            ],
-            githubUrl: 'https://github.com/DanielBrown1998/pet_keeper_lite',
-            technologies: ['GoRouter', 'GetIt', 'Firebase Firestore', 'Firebase AppCheck', 'Firebase Cloud Functions', 'Bloc', 'Clean Arch', 'Mocktail']
-        }
-    ];
-
-    const projectsGrid = document.querySelector('.projects-grid');
-
-    function loadProjects() {
-        if (!projectsGrid) return;
-        projectsGrid.innerHTML = '';
-        
-        projects.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.classList.add('project-card');
-
-            const translatedProject = translations[currentLang].projects[project.key] || { title: project.key, description: '' };
-
-            let techHtml = '';
-            if (project.technologies && project.technologies.length > 0) {
-                techHtml = `
-                    <div class="project-technologies">
-                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                `;
-            }
-
-            projectCard.innerHTML = `
-                <img src="${project.image}" alt="Screenshot do ${translatedProject.title}" class="project-image">
-                <div class="project-info">
-                    <h3>${translatedProject.title}</h3>
-                    <p>${translatedProject.description}</p>
-                    ${techHtml}
-                    <div class="project-links">
-                        <a href="${project.githubUrl}" target="_blank">${translations[currentLang]['project.viewGithub']} <i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            `;
-
-            projectsGrid.appendChild(projectCard);
-        });
-    }
-
-    // Initialize language on page load
-    setLanguage(currentLang);
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 });
